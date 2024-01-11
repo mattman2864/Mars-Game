@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <link href="style.css" rel="stylesheet"></style>
+    </head>
+    <body>
+        <div class="block">
+            <h2><span id="colonyName">Boring Name</span></h2>
+            <button onclick="rename();">Change Name</button>
+        </div>
+        <div class="block">
+            <h3>Stats</h3>
+            <hr>
+            <p class="money">$<span id="money">0</span></p>
+            <p><span class="iron" id="iron">0</span> <img src="iron-bar.svg" class="icon"></p>
+            <p><span class="food" id="food">0</span> <img src="apple.svg" class="icon"></p>
+            <p><span class="steel" id="steel">0</span> <img src="steel.svg" class="icon"></p>
+            
+        </div>
+        <div class="block">
+            <h3>Buildings</h3>
+            <hr>
+            <div class="section">
+                <p>Dormitory (<span id="dormCount">0</span>)</p>
+                <hr>
+                <p>Worker capacity increased by 6.</p>
+                <button>$<span id="dormCost">10</span> Buy Dormitory</button>
+            </div>
+            <div class="section">
+                <p>Mine (<span id="mineCount">0</span>)</p>
+                <hr>
+                <p>Produces iron.</p>
+                <button>$<span id="mineCost">100</span> Buy Mine</button>
+            </div>
+            <div class="section">
+                <p>Greenhouse (<span id="greenhouseCount">0</span>)</p>
+                <hr>
+                <p>Produces food.</p>
+                <button>$<span id="greenhouseCost">1000</span> Buy Greenhouse</button>
+            </div>
+        </div>
+        <div class="block">
+            <h3>Workers</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>
