@@ -8,11 +8,17 @@
         <div class="block">
             <h2><span id="colonyName">Boring Name</span></h2>
             <button onclick="rename();">Change Name</button>
+            <br>
+            <button onmousedown="mousedown()" onmouseup="mouseup()" onmouseleave="mouseup()" class="generator">Generate Power</button>
+            <br>
+            <div id="generatorOut">
+                <div id="generatorIn"></div>
+            </div>
         </div>
         <div class="block">
             <h3>Stats</h3>
             <hr>
-            <p class="money">$<span id="money">0</span></p>
+            <p class="power"><span id="power">0</span><img src="zap.svg" class="icon"></p>
             <p><span class="iron" id="iron">0</span> <img src="iron-bar.svg" class="icon"></p>
             <p><span class="food" id="food">0</span> <img src="apple.svg" class="icon"></p>
             <p><span class="steel" id="steel">0</span> <img src="steel.svg" class="icon"></p>
@@ -25,26 +31,25 @@
                 <p>Dormitory (<span id="dormCount">0</span>)</p>
                 <hr>
                 <p>Worker capacity increased by 6.</p>
-                <button>$<span id="dormCost">10</span> Buy Dormitory</button>
+                <button onclick="buy('dormitory')"><span id="dormCost" class="power">10</span><img src="zap.svg" class="icon"> Buy Dormitory</button>
             </div>
             <div class="section">
                 <p>Mine (<span id="mineCount">0</span>)</p>
                 <hr>
                 <p>Produces iron.</p>
-                <button>$<span id="mineCost">100</span> Buy Mine</button>
+                <button onclick="buy('mine')"><span id="mineCost" class="power">100</span><img src="zap.svg" class="icon"> Buy Mine</button>
             </div>
             <div class="section">
                 <p>Greenhouse (<span id="greenhouseCount">0</span>)</p>
                 <hr>
                 <p>Produces food.</p>
-                <button>$<span id="greenhouseCost">1000</span> Buy Greenhouse</button>
+                <button onclick="buy('greenhouse')"><span id="greenhouseCost" class="power">1000</span><img src="zap.svg" class="icon"> Buy Greenhouse</button>
             </div>
         </div>
         <div class="block">
             <h3>Workers</h3>
             <hr>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p class="worker"><span id="workers">0</span>/<span id="maxWorkers">0</span><img src="user-icon.svg" class="icon"></p>
         </div>
     </body>
     <script src="main.js"></script>
