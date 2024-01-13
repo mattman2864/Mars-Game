@@ -11,6 +11,7 @@ var stats = {
 
 // Number of buildings initialized
 var buildings = {
+    "generator":1,
     "dormitory": 0,
     "mine": 0,
     "greenhouse": 0,
@@ -29,9 +30,15 @@ var buildingCosts = {
     "greenhouse": 1000
 }
 
+var workersAssigned = {
+    "generator":0,
+}
+
 // Workers
-workers = 0;
+unemployedWorkers = 0;
+totalWorkers = 0;
 maxWorkers = 0;
+workerCost = 5;
 
 // Main Loop
 setInterval(function () {
@@ -58,7 +65,12 @@ function updateStats () {
     // Workers
     maxWorkers = 6 * buildings["dormitory"];
     document.getElementById("maxWorkers").innerHTML = maxWorkers;
-    document.getElementById("workers").innerHTML = workers;
+    document.getElementById("totalWorkers").innerHTML = totalWorkers;
+    document.getElementById("unemployedWorkers").innerHTML = unemployedWorkers;
+    document.getElementById("workerCost").innerHTML = workerCost;
+
+    // Workers at Buildings
+    document.getElementById("generatorWorkers").innerHTML = workersAssigned["generator"];
 }
 
 // Buy any building
@@ -69,6 +81,25 @@ function buy (buildingName) {
         buildingCosts[buildingName] = Math.round(buildingCosts[buildingName] * 1.55)
     }
 }
+
+// Hire Worker
+function hireWorker() {
+    if (stats.power >= workerCost && totalWorkers < maxWorkers) {
+        unemployedWorkers += 1;
+        totalWorkers += 1;
+        stats.power -= workerCost;
+        workerCost = Math.round(workerCost * 1.55);
+    }
+}
+
+// Assign worker to building
+function assignWorker(buildingName) {
+    if (unemployedWorkers > 0 && workersAssigned[buildingName] < buildings[buildingName]) {
+        unemployedWorkers -= 1;
+        workersAssigned[buildingName] += 1;
+    }
+}
+
 
 // For Renaming Base
 function rename() {
@@ -96,25 +127,35 @@ clickPower = 0;
 mouse = false;
 function mousedown()
 {
-  mouse = true;
-  callEvent();
+    if (workersAssigned['generator'] >= 1) {
+        return;
+    }
+    mouse = true;
+    callEvent();
 }
 function mouseup()
 {
-  mouse =false;
-  clickPower = 0;
+    if (workersAssigned['generator'] >= 1) {
+        return;
+    }
+    mouse = false;
+    clickPower = 0;
 }
 function callEvent()
 {
- if(mouse)
+ if(mouse || workersAssigned['generator'] >= 1)
  {
-    clickPower = (clickPower + 1) % 100;
+    clickPower = (clickPower + 1) % 105;
     if (clickPower == 0) {
         stats.power += 1;
         mouseup();
     }
-    document.getElementById("generatorIn").style.width = clickPower + "%";
+    document.getElementById("generatorIn").style.width = Math.min(clickPower, 100) + "%";
  }
  else
  return;
+}
+
+function shorten (number) {
+
 }

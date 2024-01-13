@@ -14,6 +14,9 @@
             <div id="generatorOut">
                 <div id="generatorIn"></div>
             </div>
+            <p class="worker"><img src="user-icon.svg" class="icon"><span id="generatorWorkers">0</span>/<span>1</span></p>
+            <button onclick="assignWorker('generator')">+</button>
+            <button>-</button>
         </div>
         <div class="block">
             <h3>Stats</h3>
@@ -28,20 +31,17 @@
             <h3>Buildings</h3>
             <hr>
             <div class="section">
-                <p>Dormitory (<span id="dormCount">0</span>)</p>
-                <hr>
+                <p><b>Dormitory</b> (<span id="dormCount">0</span>)</p>
                 <p>Worker capacity increased by 6.</p>
                 <button onclick="buy('dormitory')"><span id="dormCost" class="power">10</span><img src="zap.svg" class="icon"> Buy Dormitory</button>
             </div>
             <div class="section">
-                <p>Mine (<span id="mineCount">0</span>)</p>
-                <hr>
+                <p><b>Mine</b> (<span id="mineCount">0</span>)</p>
                 <p>Produces iron.</p>
                 <button onclick="buy('mine')"><span id="mineCost" class="power">100</span><img src="zap.svg" class="icon"> Buy Mine</button>
             </div>
             <div class="section">
-                <p>Greenhouse (<span id="greenhouseCount">0</span>)</p>
-                <hr>
+                <p><b>Greenhouse</b> (<span id="greenhouseCount">0</span>)</p>
                 <p>Produces food.</p>
                 <button onclick="buy('greenhouse')"><span id="greenhouseCost" class="power">1000</span><img src="zap.svg" class="icon"> Buy Greenhouse</button>
             </div>
@@ -49,7 +49,10 @@
         <div class="block">
             <h3>Workers</h3>
             <hr>
-            <p class="worker"><span id="workers">0</span>/<span id="maxWorkers">0</span><img src="user-icon.svg" class="icon"></p>
+            <p class="worker"><span id="totalWorkers">0</span>/<span id="maxWorkers">0</span><img src="user-icon.svg" class="icon">
+            (<span id="unemployedWorkers">0</span><img src="user-icon.svg" class="icon"> Unemployed)</p>
+            
+            <button onclick="hireWorker()"><span id="workerCost" class="power">10</span><img src="zap.svg" class="icon"> Hire Worker</button>
         </div>
     </body>
     <script src="main.js"></script>

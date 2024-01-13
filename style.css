@@ -1,6 +1,6 @@
 body {
     background-color:#333;
-    font-family: Roboto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #eee;
     margin:auto;
 }
@@ -31,6 +31,9 @@ h2 {
 h3 {
     font-size: x-large;
     line-height: 0px;
+}
+hr {
+    margin: 0;
 }
 .title {
     font-size: 50px;
@@ -91,21 +94,10 @@ h3 {
     color:#f22;
 }
 .icon {
-    height: 18px;
+    height: 1em;
+    width: 1em;
 }
-.innerBar {
-    background: red;
-    height: 40px;
-    width: 0%;
-}
- 
-.outerContainer {
-    width: 400px;
-    height: 40px;
-    border-radius: 5px;
-    overflow: hidden;
-    background: lightgray;
-}
+
 .generator {
     font-size: x-large;
     width: 100%;
@@ -120,12 +112,14 @@ h3 {
 #generatorOut {
     width: 100%;
     background-color: grey;
+    border-radius: 5px;
 }
   
 #generatorIn {
-width: 1%;
-height: 30px;
-background-color:#ffd700;
+    width: 1%;
+    height: 30px;
+    background-color:#ffd700;
+    border-radius: 5px;
 }
 .worker {
     color: #7c9bd4;
